@@ -1,4 +1,4 @@
-class Api::TrailsController < ApplicationController
+class TrailsController < ApplicationController
 before_action :set_trail, only: [:show, :edit, :update]
 
   def index
