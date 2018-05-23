@@ -15,6 +15,8 @@ gem 'puma', '~> 3.11'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# Utility for managing multiple processes
+gem 'foreman', '~> 0.82.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
