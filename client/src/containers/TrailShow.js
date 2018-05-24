@@ -7,6 +7,17 @@ const TrailShow = ({ trail }) =>
     <h2>Title: {trail.name}</h2>
     <h3>Title: {trail.distance}</h3>
     <h3>Title: {trail.description}</h3>
+
+    <button
+      type="button"
+      onClick={() => likeTrail(trail.id)}
+      className="btn btn-primary"
+      >
+      Like!
+    </button>
+
+    <div>Votes: {trail.votes}</div>
+    
   </div>
 
 const mapStateToProps = (state, ownProps) => {
@@ -21,5 +32,4 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 
-// export default connect(mapStateToProps, {likeTrail})(TrailShow);
-export default connect(mapStateToProps)(TrailShow);
+export default connect(mapStateToProps, {likeTrail})(TrailShow);

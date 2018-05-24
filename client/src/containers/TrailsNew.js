@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTrail } from '../actions';
+import { createTrail } from '../actions';
 
 class TrailsNew extends Component {
 
@@ -24,9 +24,9 @@ class TrailsNew extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     // Destructure addTrail and history from the components props
-    const { addTrail, history } = this.props;
+    const { createTrail, history } = this.props;
     // Create the trail with the Redux action
-    addTrail(this.state);
+    createTrail(this.state);
     // redirect to /trails route
     history.push('/trails')
   }
@@ -61,4 +61,4 @@ class TrailsNew extends Component {
   }
 }
 
-export default connect(null, { addTrail })(TrailsNew)
+export default connect(null, { createTrail })(TrailsNew)

@@ -3,21 +3,23 @@ export default (state=[], action) => {
   let trail;
 
   switch (action.type) {
+    case 'GET_TRAILS':
+      return action.trails;
+
     case 'ADD_TRAIL':
-        return [...state, action.trail];
+      return [...state, action.trail];
+
+    case 'REMOVE_TRAIL':
+      return state.filter(trail => trail.id !== action.trailId);
 
     case 'LIKE_TRAIL':
-      index = state.findIndex(trail => trail.id === action.trailId);
-      trail = state[index];
-
-      return [
-        ...state.slice(0, index),
-        Object.assign({}, trail, { votes: trail.votes += 1 }),
-        ...state.slice(index + 1)
-      ];
-
-      case 'FETCH_TRAILS':
-        return action.trails
+      return state.map((trail) => {
+        if (trail.id === action.trail.id) {
+          return action.trail
+        } else {
+          return trail
+        }
+      });
 
     default:
       return state;
