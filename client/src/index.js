@@ -9,7 +9,11 @@ import App from './App.js';
 import registerServiceWorker from './registerServiceWorker';
 import thunk from 'redux-thunk';
 
-let store = createStore(rootReducer, applyMiddleware(thunk));
+const middleware = [thunk];
+let store = createStore(rootReducer,   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(...middleware)
+);
+
 
 ReactDOM.render(
   <Provider store={store} >
