@@ -1,6 +1,4 @@
 export default (state=[], action) => {
-  let index;
-  let trail;
 
   switch (action.type) {
     case 'GET_TRAILS':

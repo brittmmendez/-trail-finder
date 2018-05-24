@@ -18,6 +18,7 @@ class TrailsPage extends Component {
 
   render() {
     const { trails, match } = this.props;
+    debugger
 
     return (
       <div>
@@ -35,9 +36,9 @@ class TrailsPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
+  return ({
     trails: state.trails
-  };
+  });
 }
 
 export default connect(mapStateToProps, {getTrails, likeTrail})(TrailsPage);

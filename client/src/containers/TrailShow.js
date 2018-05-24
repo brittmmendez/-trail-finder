@@ -10,14 +10,14 @@ const TrailShow = ({ trail }) =>
 
     <button
       type="button"
-      onClick={() => likeTrail(trail.id)}
+      onClick={() => this.props.likeTrail(trail)}
       className="btn btn-primary"
       >
       Like!
     </button>
 
-    <div>Votes: {trail.votes}</div>
-    
+    <div>Likes: {trail.likes}</div>
+
   </div>
 
 const mapStateToProps = (state, ownProps) => {

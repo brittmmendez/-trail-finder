@@ -28,7 +28,7 @@ class TrailsNew extends Component {
     // Create the trail with the Redux action
     createTrail(this.state);
     // redirect to /trails route
-    history.push('/trails')
+    // history.push('/trails')
   }
 
   render(){
