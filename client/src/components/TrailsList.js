@@ -4,7 +4,7 @@ import TrailsListItem from './TrailsListItem'
 
 const TrailsList = ({ trails }) => {
   const renderTrails = trails.map(trail =>
-     <TrailsListItem trail={trail} />
+     <TrailsListItem trail={trail}  key={trail.id}/>
   );
 
   return (

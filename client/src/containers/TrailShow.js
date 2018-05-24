@@ -1,24 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { likeTrail } from '../actions';
+import { deleteTrail } from '../actions';
+
 
 const TrailShow = ({ trail }) =>
   <div>
     <h2>Title: {trail.name}</h2>
-    <h3>Title: {trail.distance}</h3>
-    <h3>Title: {trail.description}</h3>
-
-    <button
-      type="button"
-      onClick={() => this.props.likeTrail(trail)}
-      className="btn btn-primary"
-      >
-      Like!
-    </button>
-
-    <div>Likes: {trail.likes}</div>
-
+    <h3>Distance: {trail.distance} miles</h3>
+    <h3>Description: {trail.description}</h3>
+    <button onClick={() => deleteTrail(trail.id)}> Delete </button>
   </div>
+
+    // <div>Likes: {trail.likes}</div>
+    // <button
+    //   type="button"
+    //   onClick={() => this.props.likeTrail(trail)}
+    //   className="btn btn-primary"
+    //   >
+    //   Like!
+    // </button>
 
 const mapStateToProps = (state, ownProps) => {
   // eslint-disable-next-line
@@ -32,4 +33,4 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 
-export default connect(mapStateToProps, {likeTrail})(TrailShow);
+export default connect(mapStateToProps, {likeTrail, deleteTrail})(TrailShow);

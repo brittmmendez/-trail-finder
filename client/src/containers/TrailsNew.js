@@ -26,7 +26,8 @@ class TrailsNew extends Component {
     // Destructure addTrail and history from the components props
     const { createTrail, history } = this.props;
     // Create the trail with the Redux action
-    createTrail(this.state);
+    // debugger
+    createTrail(this.state, history);
     // redirect to /trails route
     // history.push('/trails')
   }

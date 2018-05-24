@@ -2,13 +2,15 @@ const API_URL = 'http://localhost:3001/api'
 
 // Action Creators
 export const setTrails = trails => {
+  // debugger;
   return {
     type: 'GET_TRAILS',
     trails
   }
 }
 
-export const adTrail = trail => {
+export const addTrail = trail => {
+  // debugger
   return {
     type:'ADD_TRAIL',
     trail
@@ -16,6 +18,7 @@ export const adTrail = trail => {
 }
 
 export const removeTrail = trail => {
+  debugger
   return {
     type: 'REMOVE_TRAIL',
     trail
@@ -32,14 +35,12 @@ export const addLikes = trail => {
 
 // Async actions
 export const getTrails= () => {
-  debugger
   return dispatch => {
     return fetch(`${API_URL}/trails`, {
       method: "GET",
     })
     .then(res => res.json())
     .then(trails => {
-      debugger
       dispatch(setTrails(trails))
     })
     .catch(error => console.log(error));
@@ -58,6 +59,7 @@ export const fetchTrail = (trailId) => {
 }
 
 export const createTrail = (trail, routerHistory) => {
+  // debugger
   return dispatch => {
     return fetch(`${API_URL}/trails`, {
       method: "POST",
@@ -69,24 +71,31 @@ export const createTrail = (trail, routerHistory) => {
     .then(handleErrors)
     .then(response => response.json())
     .then(trail => {
-      dispatch(adTrail(trail))
-      routerHistory.push(`/trails/${trail.id}`)
+      // debugger
+      dispatch(addTrail(trail))
+      // debugger
+      routerHistory.replace(`/trails/${trail.id}`)
     })
     .catch(error => {
       dispatch({type: 'error'})
-      routerHistory.push(`/trails/new`)
+      // debugger
+      routerHistory.replace('/trails/new');
      })
   }
 }
 
 export const deleteTrail = (trailId, routerHistory) => {
+  debugger
   return dispatch => {
     return fetch(`${API_URL}/trails/${trailId}`, {
       method: "DELETE",
     })
     .then(response => {
+      debugger
       dispatch(removeTrail(trailId));
+      debugger
       routerHistory.replace('/api/trails');
+      debugger
     })
     .catch(error => console.log(error))
   }
@@ -112,6 +121,7 @@ export const likeTrail = (trail) => {
 
 function handleErrors(response){
   if (!response.ok) {
+    debugger
     throw Error(response.statusText);
   }
   return response;
