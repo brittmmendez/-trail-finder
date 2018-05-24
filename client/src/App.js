@@ -8,6 +8,7 @@ import {
 import NavBar from './components/NavBar';
 import TrailsPage from './containers/TrailsPage';
 
+
 class App extends Component {
   render() {
     return (
