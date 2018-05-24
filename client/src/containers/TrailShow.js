@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { likeTrail } from '../actions';
 
 const TrailShow = ({ trail }) =>
   <div>
@@ -7,10 +8,19 @@ const TrailShow = ({ trail }) =>
     <h3>Title: {trail.distance}</h3>
     <h3>Title: {trail.description}</h3>
 
-  </div>
+  //   <button
+  //     type="button"
+  //     onClick={() => likeTrail(trail.id)}
+  //     className="btn btn-primary"
+  //     >
+  //     Like!
+  //   </button>
+  //
+  //   <div>Votes: {trail.votes}</div>
+  // </div>
 
 const mapStateToProps = (state, ownProps) => {
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const trail = state.trails.find(trail => trail.id == ownProps.match.params.trailId)
 
   if (trail) {
@@ -20,4 +30,5 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(TrailShow);
+
+export default connect(mapStateToProps, {likeTrail})(TrailShow);

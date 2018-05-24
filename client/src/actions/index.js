@@ -7,3 +7,10 @@ export function addTrail(trail) {
     trail
   };
 }
+
+export function likeTrail(trailId) {
+  return {
+    type: 'LIKE_TRAIL',
+    trailId
+  }
+}
