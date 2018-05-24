@@ -22,14 +22,16 @@ class TrailsPage extends Component {
 
     return (
       <div>
-        <TrailsList trails={trails} />
         <Switch>
-          <Route path={`${match.url}/new`} component={TrailsNew} />
+          <Route exact path={`${match.url}/new`} component={TrailsNew} />
           <Route path={`${match.url}/:trailId`} component={TrailShow}/>
-          <Route exact path={match.url} render={() => (
-            <h3>Please select a Trail from the list.</h3>
-          )}/>
         </Switch>
+        <p>
+          <Route path={match.url} render={() => (<h3>Please select a Trail from the list.</h3>)}/>
+          <ul>
+            <TrailsList trails={trails} />
+          </ul>
+        </p>
       </div>
     )
   }

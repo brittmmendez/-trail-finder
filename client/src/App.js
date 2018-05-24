@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from './components/NavBar';
+import Home from './components/Home';
 import TrailsPage from './containers/TrailsPage';
 
 
@@ -13,7 +14,7 @@ class App extends Component {
         <div>
           <NavBar />
           <Switch>
-            <Route exact path="/" render={() => <div>Home</div>} />
+            <Route exact path="/" component={Home} />
             <Route path='/trails' component={TrailsPage} />
           </Switch>
         </div>
