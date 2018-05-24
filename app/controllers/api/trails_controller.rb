@@ -15,7 +15,7 @@ before_action :set_trail, only: [:show, :edit, :update]
     if @trail.save
       render json: @trail, status: 200
     else
-      render json: {error: "Something went wrong."}, status: 400
+      render json: {message: trail.errors}, status: 400
     end
   end
 
@@ -30,7 +30,15 @@ before_action :set_trail, only: [:show, :edit, :update]
     if @trail.update(trail_params)
       render json: @trail, status: 200
     else
-      render json: {error: "Something went wrong."}, status: 400
+      render json: {message: trail.errors}, status: 400
+    end
+  end
+
+  def destroy
+    if @trail.destroy
+      render status: 204
+    else
+      render json: {message: trail.errors}, status: 400
     end
   end
 
@@ -41,6 +49,6 @@ before_action :set_trail, only: [:show, :edit, :update]
   end
 
   def trail_params
-    params.require(:trail).permit(:name, :distance, :description)
+    params.require(:trail).permit(:name, :distance, :description, :likes)
   end
 end

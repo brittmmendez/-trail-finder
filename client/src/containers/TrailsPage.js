@@ -13,6 +13,7 @@ class TrailsPage extends Component {
 
   componentDidMount() {
     this.props.getTrails()
+    debugger;
   }
 
   render() {

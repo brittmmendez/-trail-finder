@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3001/api';
+const API_URL = "localhost:3001/api/";
 
 // Action Creators
 export const setTrails = trails => {
@@ -9,6 +9,7 @@ export const setTrails = trails => {
 }
 
 export const adTrail = trail => {
+  debugger;
   return {
     type:'ADD_TRAIL',
     trail
@@ -33,11 +34,13 @@ export const addLikes = trail => {
 // Async actions
 export const getTrails= () => {
   return dispatch => {
+    debugger
     return fetch(`${API_URL}/trails`, {
       method: "GET",
     })
     .then(res => res.json())
     .then(trails => {
+      debugger
       dispatch(setTrails(trails))
     })
     .catch(error => console.log(error));
