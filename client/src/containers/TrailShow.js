@@ -21,12 +21,11 @@ import { likeTrail } from '../actions';
 
       return (
         <div>
-          <h1>{trail.name}</h1>
-          <h3><p>Distance: <br></br>{trail.distance}</p></h3>
-          <h3><p>Description: <br></br>{trail.description}</p></h3>
-          <br></br>
-          <button onClick={() => deleteTrail(trail.id, history)}> Delete </button>
           <LikeButton trail={trail} likeTrail={this.handleOnClick}/>
+          <h1>{trail.name}</h1>
+          <h3>Distance: {trail.distance} miles</h3>
+          <h3>Description: {trail.description}</h3>
+          <button onClick={() => deleteTrail(trail.id, history)}> Delete </button>
         </div>
       )
     }
