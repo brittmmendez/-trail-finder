@@ -1,5 +1,5 @@
 class TrailsController < ApplicationController
-before_action :set_trail, only: [:show, :edit, :update]
+before_action :set_trail, only: [:show, :edit, :update, :destroy]
 
   def index
     @trails = Trail.all

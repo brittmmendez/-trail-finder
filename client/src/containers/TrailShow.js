@@ -20,21 +20,13 @@ import { likeTrail } from '../actions';
       const {deleteTrail, history} = this.props;
 
       return (
-        <div className='TrailShow'>
-          {trail ? (
-            <div>
-              <h1 className='trailName'>{trail.name}</h1>
-              <h3><p>Distance: <br></br>{trail.distance}</p></h3>
-              <h3><p>Description: <br></br>{trail.description}</p></h3>
-            </div>
-          ) : (
-            <p>Loading</p>
-          )}
+        <div>
+          <h1>{trail.name}</h1>
+          <h3><p>Distance: <br></br>{trail.distance}</p></h3>
+          <h3><p>Description: <br></br>{trail.description}</p></h3>
           <br></br>
-          <button onClick={() => deleteTrail(trail.id, history)}>
-            Delete
-          </button>
-          {trail ? <LikeButton trail={trail} likeTrail={this.handleOnClick}/> : 'some error happened'}
+          <button onClick={() => deleteTrail(trail.id, history)}> Delete </button>
+          <LikeButton trail={trail} likeTrail={this.handleOnClick}/>
         </div>
       )
     }

@@ -4,7 +4,7 @@ class LikeButton extends Component {
   render() {
     return(
       <div>
-        <button onClick={this.props.likeTrail}>Likes { this.props.trail.likes}</button>
+        <button onClick={this.props.likeTrail}>Run Counter: { this.props.trail.likes}</button>
       </div>
     )
   }
