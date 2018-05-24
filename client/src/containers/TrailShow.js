@@ -1,36 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { likeTrail } from '../actions';
+import { fetchTrail } from '../actions';
 import { deleteTrail } from '../actions';
+import LikeButton from '../components/LikeButton';
+import { likeTrail } from '../actions';
 
+  class TrailShow extends Component {
 
-const TrailShow = ({ trail }) =>
-  <div>
-    <h2>Title: {trail.name}</h2>
-    <h3>Distance: {trail.distance} miles</h3>
-    <h3>Description: {trail.description}</h3>
-    <button onClick={() => deleteTrail(trail.id)}> Delete </button>
-  </div>
+    handleOnClick = () => {
+      this.props.likeTrail(this.props.trail[0])
+    }
 
-    // <div>Likes: {trail.likes}</div>
-    // <button
-    //   type="button"
-    //   onClick={() => this.props.likeTrail(trail)}
-    //   className="btn btn-primary"
-    //   >
-    //   Like!
-    // </button>
+    componentDidMount() {
+      this.props.fetchTrail(this.props.match.params.trailId);
+    }
 
-const mapStateToProps = (state, ownProps) => {
-  // eslint-disable-next-line
-  const trail = state.trails.find(trail => trail.id == ownProps.match.params.trailId)
+    render() {
+      let trail = this.props.trail[0];
+      const {deleteTrail, history} = this.props;
 
-  if (trail) {
-    return { trail }
-  } else {
-    return { trail: {} }
+      return (
+        <div className='TrailShow'>
+          {trail ? (
+            <div>
+              <h1 className='trailName'>{trail.name}</h1>
+              <h3><p>Distance: <br></br>{trail.distance}</p></h3>
+              <h3><p>Description: <br></br>{trail.description}</p></h3>
+            </div>
+          ) : (
+            <p>Loading</p>
+          )}
+          <br></br>
+          <button onClick={() => deleteTrail(trail.id, history)}>
+            Delete
+          </button>
+          {trail ? <LikeButton trail={trail} likeTrail={this.handleOnClick}/> : 'some error happened'}
+        </div>
+      )
+    }
   }
-}
 
+  const mapStateToProps = (state) => {
+    return ({
+      trail: state.trails
+    })
+  }
 
-export default connect(mapStateToProps, {likeTrail, deleteTrail})(TrailShow);
+  export default connect(mapStateToProps, {fetchTrail, deleteTrail, likeTrail})(TrailShow);
