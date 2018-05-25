@@ -15,7 +15,6 @@ export const setTrail = trail => {
   }
 }
 export const addTrail = trail => {
-  debugger
   return {
     type:'ADD_TRAIL',
     trail
@@ -63,7 +62,6 @@ export const fetchTrail = (trailId) => {
 }
 
 export const createTrail = (trail, routerHistory) => {
-debugger
   return dispatch => {
     return fetch(`${API_URL}/trails`, {
       method: "POST",
@@ -75,27 +73,24 @@ debugger
     .then(handleErrors)
     .then(response => response.json())
     .then(trail => {
-      debugger
       dispatch(addTrail(trail))
-      debugger
       routerHistory.replace(`/trails/${trail.id}`)
     })
     .catch(error => {
       dispatch({type: 'error'})
-      routerHistory.replace('/trails');
+      routerHistory.replace('/trails/new');
      })
   }
 }
 
 export const deleteTrail = (trailId, routerHistory) => {
-
   return dispatch => {
     return fetch(`${API_URL}/trails/${trailId}`, {
       method: "DELETE",
     })
     .then(response => {
       dispatch(removeTrail(trailId));
-      routerHistory.replace('/');
+      routerHistory.replace('/trails');
     })
     .catch(error => console.log(error))
   }

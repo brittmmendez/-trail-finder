@@ -22,16 +22,11 @@ class TrailsNew extends Component {
     }
 
   handleOnSubmit = event => {
-    debugger
     event.preventDefault();
     // Destructure addTrail and history from the components props
-    debugger
     const { createTrail, history } = this.props;
     // Create the trail with the Redux action
-    debugger
     createTrail(this.state, history);
-    // redirect to /trails route
-    // history.push('/trails')
   }
 
   render(){

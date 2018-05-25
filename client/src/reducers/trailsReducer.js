@@ -11,7 +11,7 @@ export default (state={trails:[], trail: "" }, action) => {
       return {trails: [...state.trails, action.trail], trail: action.trail};
 
     case 'REMOVE_TRAIL':
-      return state.trails.filter(trail => trail.id !== action.trailId);
+      return {trails: state.trails.filter(trail => trail.id !== action.trail), trail:""};
 
     case 'LIKE_TRAIL':
       state.trails.map((trail) => {
