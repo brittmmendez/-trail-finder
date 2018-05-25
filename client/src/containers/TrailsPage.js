@@ -15,23 +15,27 @@ class TrailsPage extends Component {
     this.props.getTrails()
   }
 
+  // componentDidMount() {
+  //   this.props.getTrails()
+  // }
+
   render() {
     const { trails, match } = this.props;
 
     return (
       <div>
         <Switch>
-          <Route exact path={`${match.url}/new`} component={TrailsNew} />
-          <Route path={`${match.url}/:trailId`} component={TrailShow}/>
-        </Switch>
-          <Route path={match.url} render={() => (
+          <Route exact path={match.url} render={() => (
             <div>
               <h3>Please select a Trail from the list.</h3>
               <ul>
                 <TrailsList trails={trails} />
               </ul>
             </div>)}
-            />
+          />
+          <Route exact path={`${match.url}/new`} component={TrailsNew} />
+          <Route exact path={`${match.url}/:trailId`} component={TrailShow}/>
+        </Switch>
       </div>
     )
   }
@@ -39,7 +43,7 @@ class TrailsPage extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    trails: state.trails
+    trails: state.trails.trails
   });
 }
 

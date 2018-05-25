@@ -8,6 +8,12 @@ export const setTrails = trails => {
   }
 }
 
+export const setTrail = trail => {
+  return {
+    type: 'GET_TRAIL',
+    trail
+  }
+}
 export const addTrail = trail => {
   return {
     type:'ADD_TRAIL',
@@ -23,6 +29,7 @@ export const removeTrail = trail => {
 }
 
 export const addLikes = trail => {
+  debugger
   return {
     type: 'LIKE_TRAIL',
     trail
@@ -49,7 +56,7 @@ export const fetchTrail = (trailId) => {
 		return fetch(`${API_URL}/trails/${trailId}`)
 			.then(response => response.json())
 			.then(trail => {
-				dispatch(setTrails([trail]));
+				dispatch(setTrail(trail));
 			})
 			.catch(error => console.log(error));
 	}
@@ -86,7 +93,7 @@ export const deleteTrail = (trailId, routerHistory) => {
     })
     .then(response => {
       dispatch(removeTrail(trailId));
-      routerHistory.replace('/api/trails');
+      routerHistory.replace('/');
     })
     .catch(error => console.log(error))
   }
@@ -104,6 +111,7 @@ export const likeTrail = (trail) => {
       })
       .then(response => response.json())
       .then(trail => {
+
         dispatch(addLikes(trail))
       })
     .catch(error => console.log(error))

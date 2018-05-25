@@ -6,25 +6,25 @@ import LikeButton from '../components/LikeButton';
 import { likeTrail } from '../actions';
 
   class TrailShow extends Component {
-
-    handleOnClick = () => {
-      this.props.likeTrail(this.props.trail[0])
-    }
-
     componentDidMount() {
       this.props.fetchTrail(this.props.match.params.trailId);
     }
 
+    handleOnClick = () => {
+      this.props.likeTrail(this.props.trail)
+    }
+
     render() {
-      let trail = this.props.trail[0];
+      let trail = this.props.trail;
       const {deleteTrail, history} = this.props;
 
       return (
         <div>
-          <LikeButton trail={trail} likeTrail={this.handleOnClick}/>
           <h1>{trail.name}</h1>
-          <h3>Distance: {trail.distance} miles</h3>
-          <h3>Description: {trail.description}</h3>
+          <h4>Distance:{trail.distance} miles</h4>
+          <h4>Description: {trail.description}</h4>
+          <img src={trail.image} width="20%" height="50%" alt="logo" /> <br></br>
+          <LikeButton trail={trail} likeTrail={this.handleOnClick}/>
           <button onClick={() => deleteTrail(trail.id, history)}> Delete </button>
         </div>
       )
@@ -33,7 +33,7 @@ import { likeTrail } from '../actions';
 
   const mapStateToProps = (state) => {
     return ({
-      trail: state.trails
+      trail: state.trails.trail
     })
   }
 
