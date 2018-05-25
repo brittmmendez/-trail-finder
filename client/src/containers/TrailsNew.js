@@ -32,27 +32,35 @@ class TrailsNew extends Component {
   render(){
     return (
       <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
-        <input
-          type="text"
-          name="name"
-          placeholder="Trail Name"
-          value={this.state.name}
-          onChange={this.handleOnChange}
-          />
-        <input
-          type="text"
-          name="distance"
-          placeholder="Distance in Miles"
-          value={this.state.distance}
-          onChange={this.handleOnChange}
-          />
-        <input
-          type="text"
-          name="description"
-          placeholder="Add Description"
-          value={this.state.description}
-          onChange={this.handleOnChange}
-          />
+        <label>
+          Name:
+            <input
+              type="text"
+              name="name"
+              placeholder="Trail Name"
+              value={this.state.name}
+              onChange={this.handleOnChange}
+              />
+        </label> <br></br>
+        <label>
+          Distance:
+            <input
+              type="text"
+              name="distance"
+              placeholder="Distance in Miles"
+              value={this.state.distance}
+              onChange={this.handleOnChange}
+              />
+        </label><br></br>
+        <label>
+          Description:
+            <textarea
+              name="description"
+              placeholder="Add Description"
+              value={this.state.description}
+              onChange={this.handleOnChange}
+              />
+        </label><br></br>
         <input type="submit" value="Add Trail" />
       </form>
     );

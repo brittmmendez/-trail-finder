@@ -9,6 +9,7 @@ import { getTrails } from '../actions';
 import { likeTrail } from '../actions';
 import { deleteTrail } from '../actions';
 import TrailsEdit from './TrailsEdit';
+import { Link } from 'react-router-dom';
 
 class TrailsPage extends Component {
 
@@ -16,9 +17,10 @@ class TrailsPage extends Component {
     this.props.getTrails()
   }
 
+
   render() {
     const { trails, match } = this.props;
-
+    
     return (
       <div>
         <Switch>

@@ -32,27 +32,32 @@ class TrailsEdit extends Component {
   render(){
     return (
       <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
-        <input
-          type="text"
-          name="name"
-          // placeholder={this.state.name}
-          value={this.state.name}
-          onChange={this.handleOnChange}
-          />
-        <input
-          type="text"
-          name="distance"
-          // placeholder={this.state.distance}
-          value={this.state.distance}
-          onChange={this.handleOnChange}
-          />
-        <input
-          type="text"
-          name="description"
-          // placeholder={this.state.description}
-          value={this.state.description}
-          onChange={this.handleOnChange}
-          />
+        <label>
+          Name:
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleOnChange}
+              />
+        </label> <br></br>
+        <label>
+          Distance:
+            <input
+              type="text"
+              name="distance"
+              value={this.state.distance}
+              onChange={this.handleOnChange}
+              />
+        </label><br></br>
+        <label>
+          Description:
+            <textarea
+              name="description"
+              value={this.state.description}
+              onChange={this.handleOnChange}
+              />
+        </label><br></br>
         <input type="submit" value="Update Trail" />
       </form>
     );
