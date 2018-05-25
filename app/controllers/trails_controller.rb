@@ -36,7 +36,7 @@ before_action :set_trail, only: [:show, :edit, :update, :destroy]
 
   def destroy
     if @trail.destroy
-      render status: 204
+      render json: {message: "triail deleted"}, status: 204
     else
       render json: {message: trail.errors}, status: 400
     end

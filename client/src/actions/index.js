@@ -14,6 +14,7 @@ export const setTrail = trail => {
     trail
   }
 }
+
 export const addTrail = trail => {
   return {
     type:'ADD_TRAIL',
@@ -29,9 +30,15 @@ export const removeTrail = trail => {
 }
 
 export const addLikes = trail => {
-  debugger
   return {
     type: 'LIKE_TRAIL',
+    trail
+  }
+}
+
+export const updateTrail = trail => {
+  return {
+    type: 'EDIT_TRAIL',
     trail
   }
 }
@@ -83,14 +90,36 @@ export const createTrail = (trail, routerHistory) => {
   }
 }
 
+export const editTrail = (trail, routerHistory) => {
+  return dispatch => {
+    return fetch(`${API_URL}/trails/${trail.id}`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({trail: trail})
+    })
+    .then(handleErrors)
+    .then(response => response.json())
+    .then(trail => {
+      dispatch(updateTrail(trail))
+      routerHistory.replace(`/trails/${trail.id}`)
+    })
+    .catch(error => {
+      dispatch({type: 'error'})
+      routerHistory.replace('/trails');
+     })
+  }
+}
+
 export const deleteTrail = (trailId, routerHistory) => {
   return dispatch => {
     return fetch(`${API_URL}/trails/${trailId}`, {
       method: "DELETE",
     })
     .then(response => {
-      dispatch(removeTrail(trailId));
       routerHistory.replace('/trails');
+      dispatch(removeTrail(trailId));
     })
     .catch(error => console.log(error))
   }

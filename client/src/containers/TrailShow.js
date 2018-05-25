@@ -4,6 +4,8 @@ import { fetchTrail } from '../actions';
 import { deleteTrail } from '../actions';
 import LikeButton from '../components/LikeButton';
 import { likeTrail } from '../actions';
+import { editTrail } from '../actions';
+import { Link } from 'react-router-dom';
 
   class TrailShow extends Component {
     componentDidMount() {
@@ -16,10 +18,11 @@ import { likeTrail } from '../actions';
 
     render() {
       let trail = this.props.trail;
-      const {deleteTrail, history} = this.props;
+      const {deleteTrail, match, history} = this.props;
 
       return (
         <div>
+          <Link style={{ marginRight: '12px' }} key={trail.id} to={`/trails/${trail.id}/edit`}>Edit Trail</Link>
           <h1>{trail.name}</h1>
           <h4>Distance:{trail.distance} miles</h4>
           <h4>Description: {trail.description}</h4>

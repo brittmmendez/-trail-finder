@@ -8,6 +8,7 @@ import TrailsNew from './TrailsNew';
 import { getTrails } from '../actions';
 import { likeTrail } from '../actions';
 import { deleteTrail } from '../actions';
+import TrailsEdit from './TrailsEdit';
 
 class TrailsPage extends Component {
 
@@ -30,6 +31,7 @@ class TrailsPage extends Component {
             </div>)}
           />
           <Route  path={`${match.url}/new`} component={TrailsNew} />
+          <Route exact path={`${match.url}/:trailId/edit`} component={TrailsEdit}/>
           <Route exact path={`${match.url}/:trailId`} component={TrailShow}/>
         </Switch>
       </div>

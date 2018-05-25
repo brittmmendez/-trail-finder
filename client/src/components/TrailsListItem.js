@@ -6,7 +6,7 @@ class TrailsListItem extends Component {
     return(
       <li>
         <Link style={{ marginRight: '12px' }} key={this.props.trail.id} to={`/trails/${this.props.trail.id}`}>{this.props.trail.name}</Link>
-        - {this.props.trail.likes} runs and counting!
+        -Ran {this.props.trail.likes} times!
         <br></br>
         <img src={this.props.trail.image} width="20%" height="50%" alt="logo" />
       </li>
