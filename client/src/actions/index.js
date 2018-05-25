@@ -15,6 +15,7 @@ export const setTrail = trail => {
   }
 }
 export const addTrail = trail => {
+  debugger
   return {
     type:'ADD_TRAIL',
     trail
@@ -35,7 +36,6 @@ export const addLikes = trail => {
     trail
   }
 }
-
 
 // Async actions
 export const getTrails= () => {
@@ -63,7 +63,7 @@ export const fetchTrail = (trailId) => {
 }
 
 export const createTrail = (trail, routerHistory) => {
-  //
+debugger
   return dispatch => {
     return fetch(`${API_URL}/trails`, {
       method: "POST",
@@ -75,12 +75,14 @@ export const createTrail = (trail, routerHistory) => {
     .then(handleErrors)
     .then(response => response.json())
     .then(trail => {
+      debugger
       dispatch(addTrail(trail))
+      debugger
       routerHistory.replace(`/trails/${trail.id}`)
     })
     .catch(error => {
       dispatch({type: 'error'})
-      routerHistory.replace('/trails/new');
+      routerHistory.replace('/trails');
      })
   }
 }

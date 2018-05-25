@@ -15,10 +15,6 @@ class TrailsPage extends Component {
     this.props.getTrails()
   }
 
-  // componentDidMount() {
-  //   this.props.getTrails()
-  // }
-
   render() {
     const { trails, match } = this.props;
 
@@ -33,7 +29,7 @@ class TrailsPage extends Component {
               </ul>
             </div>)}
           />
-          <Route exact path={`${match.url}/new`} component={TrailsNew} />
+          <Route  path={`${match.url}/new`} component={TrailsNew} />
           <Route exact path={`${match.url}/:trailId`} component={TrailShow}/>
         </Switch>
       </div>

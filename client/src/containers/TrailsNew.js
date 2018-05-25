@@ -4,7 +4,7 @@ import { createTrail } from '../actions';
 
 class TrailsNew extends Component {
 
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
@@ -22,11 +22,13 @@ class TrailsNew extends Component {
     }
 
   handleOnSubmit = event => {
+    debugger
     event.preventDefault();
     // Destructure addTrail and history from the components props
+    debugger
     const { createTrail, history } = this.props;
     // Create the trail with the Redux action
-    // debugger
+    debugger
     createTrail(this.state, history);
     // redirect to /trails route
     // history.push('/trails')
@@ -45,7 +47,7 @@ class TrailsNew extends Component {
         <input
           type="text"
           name="distance"
-          placeholder="Distance"
+          placeholder="Distance in Miles"
           value={this.state.distance}
           onChange={this.handleOnChange}
           />
