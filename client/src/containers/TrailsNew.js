@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createTrail } from '../actions';
+import { Button } from 'react-bootstrap';
 
 class TrailsNew extends Component {
 
@@ -31,38 +32,40 @@ class TrailsNew extends Component {
 
   render(){
     return (
-      <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
-        <label>
-          Name:
-            <input
-              type="text"
-              name="name"
-              placeholder="Trail Name"
-              value={this.state.name}
-              onChange={this.handleOnChange}
-              />
-        </label> <br></br>
-        <label>
-          Distance:
-            <input
-              type="text"
-              name="distance"
-              placeholder="Distance in Miles"
-              value={this.state.distance}
-              onChange={this.handleOnChange}
-              />
-        </label><br></br>
-        <label>
-          Description:
-            <textarea
-              name="description"
-              placeholder="Add Description"
-              value={this.state.description}
-              onChange={this.handleOnChange}
-              />
-        </label><br></br>
-        <input type="submit" value="Add Trail" />
-      </form>
+      <div className="container-fluid text-center">
+        <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
+          <label>
+            Name: <br></br>
+              <input
+                type="text"
+                name="name"
+                placeholder="Trail Name"
+                value={this.state.name}
+                onChange={this.handleOnChange}
+                />
+          </label> <br></br>
+          <label>
+            Distance: <br></br>
+              <input
+                type="text"
+                name="distance"
+                placeholder="Distance in Miles"
+                value={this.state.distance}
+                onChange={this.handleOnChange}
+                />
+          </label><br></br>
+          <label>
+            Description: <br></br>
+              <textarea
+                name="description"
+                placeholder="Add Description"
+                value={this.state.description}
+                onChange={this.handleOnChange}
+                />
+          </label><br></br>
+          <Button bsStyle='primary' type="submit"> <span className="glyphicon glyphicon-ok"></span> Add Trail </Button>
+        </form>
+      </div>
     );
   }
 }

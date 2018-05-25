@@ -1,5 +1,7 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 10;
+  padding: 10;
   font-family: sans-serif;
+  background-image: url(https://images.fineartamerica.com/images-medium-large/green-leaves-with-natural-background-natthawut-punyosaeng.jpg);
+  background-size: cover;
 }

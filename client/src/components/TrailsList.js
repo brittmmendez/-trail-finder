@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TrailsListItem from './TrailsListItem'
+import { Button } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 
 const TrailsList = ({ trails }) => {
   const orderTrails = trails.sort(function(a, b) {
@@ -8,6 +10,7 @@ const TrailsList = ({ trails }) => {
         })
   const renderTrails = orderTrails.map(trail =>
      <TrailsListItem trail={trail}  key={trail.id}/>
+
   );
 
   let num = trails[Math.floor(Math.random() * trails.length)];
@@ -15,16 +18,21 @@ const TrailsList = ({ trails }) => {
 
   return (
     <div>
-      <button>
-        <Link
-          style={{ marginRight: '12px' }}
-          to={`/trails/${id}`}>
-          CLICK ME<br></br> For A Random Trail!
-        </Link>
-      </button>
+      <div className="container-fluid text-center">
+        <Button bsSize="large">
+          <Link
+            style={{ marginRight: '12px' }}
+            to={`/trails/${id}`}>
+            CLICK ME<br></br> For A Random Trail!
+          </Link>
+        </Button>
+      </div>
 
-      {renderTrails}
-
+      <div class="container">
+        <div class="row">
+          {renderTrails}
+        </div>
+      </div>
     </div>
   );
 };

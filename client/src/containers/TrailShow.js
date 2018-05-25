@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import LikeButton from '../components/LikeButton';
+
 import { fetchTrail } from '../actions';
 import { deleteTrail } from '../actions';
-import LikeButton from '../components/LikeButton';
 import { likeTrail } from '../actions';
 import { editTrail } from '../actions';
-import { Link } from 'react-router-dom';
+
+import { Button } from 'react-bootstrap';
+import { ButtonGroup } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
+
 
   class TrailShow extends Component {
     componentDidMount() {
@@ -21,14 +28,26 @@ import { Link } from 'react-router-dom';
       const {deleteTrail, match, history} = this.props;
 
       return (
-        <div>
-          <Link style={{ marginRight: '12px' }} key={trail.id} to={`/trails/${trail.id}/edit`}>Edit Trail</Link>
+      <div className="container-fluid text-center">
           <h1>{trail.name}</h1>
-          <h4>Distance:{trail.distance} miles</h4>
+          <h4>Distance:  {trail.distance} miles</h4>
+          <Image src={trail.image} width="30%" height="50%" alt="logo" rounded/> <br></br>
           <h4>Description: {trail.description}</h4>
-          <img src={trail.image} width="20%" height="50%" alt="logo" /> <br></br>
-          <LikeButton trail={trail} likeTrail={this.handleOnClick}/>
-          <button onClick={() => deleteTrail(trail.id, history)}> Delete </button>
+          <ButtonGroup>
+            <Button
+              bsStyle="danger"
+              onClick={() => deleteTrail(trail.id, history)}>
+               <span className="glyphicon glyphicon-remove"></span> Delete
+            </Button>
+
+            <Button>
+              <Link key={trail.id} to={`/trails/${trail.id}/edit`}>
+                <span className="glyphicon glyphicon-pencil"></span> Edit Trail
+              </Link>
+            </Button>
+
+            <LikeButton trail={trail} likeTrail={this.handleOnClick}/>
+          </ButtonGroup>
         </div>
       )
     }

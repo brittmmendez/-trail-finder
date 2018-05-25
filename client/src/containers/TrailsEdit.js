@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editTrail } from '../actions';
+import { Button } from 'react-bootstrap';
 
 class TrailsEdit extends Component {
 
@@ -31,35 +32,37 @@ class TrailsEdit extends Component {
 
   render(){
     return (
-      <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
-        <label>
-          Name:
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleOnChange}
-              />
-        </label> <br></br>
-        <label>
-          Distance:
-            <input
-              type="text"
-              name="distance"
-              value={this.state.distance}
-              onChange={this.handleOnChange}
-              />
-        </label><br></br>
-        <label>
-          Description:
-            <textarea
-              name="description"
-              value={this.state.description}
-              onChange={this.handleOnChange}
-              />
-        </label><br></br>
-        <input type="submit" value="Update Trail" />
-      </form>
+      <div className="container-fluid text-center">
+        <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
+          <label>
+            Name: <br></br>
+              <input
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleOnChange}
+                />
+          </label> <br></br>
+          <label>
+            Distance: <br></br>
+              <input
+                type="text"
+                name="distance"
+                value={this.state.distance}
+                onChange={this.handleOnChange}
+                />
+          </label><br></br>
+          <label>
+            Description: <br></br>
+              <textarea
+                name="description"
+                value={this.state.description}
+                onChange={this.handleOnChange}
+                />
+          </label><br></br>
+          <Button bsStyle='primary' type="submit"> <span class="glyphicon glyphicon-ok"></span> Update Trail </Button>
+        </form>
+      </div>
     );
   }
 }

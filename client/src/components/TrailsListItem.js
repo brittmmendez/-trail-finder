@@ -1,17 +1,23 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { Image } from 'react-bootstrap';
 
 class TrailsListItem extends Component {
   render() {
     return(
-      <li>
+      <div className="col-sm-6">
+        <div className="container-fluid text-center">
+        <h3>
         <Link style={{ marginRight: '12px' }} key={this.props.trail.id} to={`/trails/${this.props.trail.id}`}>{this.props.trail.name}</Link>
-        -Ran {this.props.trail.likes} times!
+        -Ran {this.props.trail.likes} times!</h3>
+        <Image  src={this.props.trail.image} width="250" height="200" alt="logo" rounded/>
         <br></br>
-        <img src={this.props.trail.image} width="20%" height="50%" alt="logo" />
-      </li>
+        <br></br>
+      </div>
+      </div>
     )
   }
 }
+
 
 export default TrailsListItem;

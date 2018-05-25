@@ -8,6 +8,7 @@ import './index.css';
 import App from './App.js';
 import registerServiceWorker from './registerServiceWorker';
 import thunk from 'redux-thunk';
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 const middleware = [thunk];
 let store = createStore(rootReducer,   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
