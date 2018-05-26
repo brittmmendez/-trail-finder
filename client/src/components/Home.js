@@ -1,5 +1,5 @@
 import React from 'react';
-import pic from '../Capture1.JPG';
+import pic from '../circle-tree-logo_354988.png';
 
 
 const Home = props => {
