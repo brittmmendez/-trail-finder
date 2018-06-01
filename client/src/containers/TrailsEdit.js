@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';                                          //connects component to redux store provided by provider component 
 import { editTrail } from '../actions';
 import { Button } from 'react-bootstrap';
 

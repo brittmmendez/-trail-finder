@@ -13,8 +13,8 @@ const TrailsList = ({ trails }) => {
 
   );
 
-  let num = trails[Math.floor(Math.random() * trails.length)];
-  let id = num? num.id : 1
+  let randomTrail = trails[Math.floor(Math.random() * trails.length)];
+  let id = randomTrail? randomTrail.id : 1
 
   return (
     <div>
@@ -28,8 +28,8 @@ const TrailsList = ({ trails }) => {
         </Button>
       </div>
 
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           {renderTrails}
         </div>
       </div>

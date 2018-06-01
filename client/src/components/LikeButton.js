@@ -10,7 +10,7 @@ class LikeButton extends Component {
         <Button
           bsStyle="success"
           onClick={this.props.likeTrail}>
-          <span className="glyphicon glyphicon-plus"></span> Add Run 
+          <span className="glyphicon glyphicon-plus"></span> Add Run
           <Badge> {this.props.trail.likes} </Badge>
           </Button>
       </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch  } from 'react-router-dom';
 import '../App.css';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';                                          //connects component to redux store provided by provider component
 import TrailsList from '../components/TrailsList';
 import TrailShow from './TrailShow';
 import TrailsNew from './TrailsNew';

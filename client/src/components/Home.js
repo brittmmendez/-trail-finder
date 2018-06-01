@@ -2,7 +2,7 @@ import React from 'react';
 import pic from '../circle-tree-logo_354988.png';
 
 
-const Home = props => {
+const Home = () => {
   return (
     <div className="container-fluid text-center">
       <h1>Happy Summer Running!!</h1>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';                                          //connects component to redux store provided by provider component
 import { createTrail } from '../actions';
 import { Button } from 'react-bootstrap';
 
 class TrailsNew extends Component {
 
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
