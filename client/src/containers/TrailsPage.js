@@ -38,8 +38,8 @@ class TrailsPage extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-    trails: state.trails.trails
+    trails: state.trails
   });
 }
 
-export default connect(mapStateToProps, {getTrails})(TrailsPage);
+export default connect(mapStateToProps, {getTrails, likeTrail})(TrailsPage);

@@ -127,7 +127,7 @@ export const deleteTrail = (trailId, routerHistory) => {
 }
 
 export const likeTrail = (trail) => {
-  // const updatedTrail = Object.assign(...trail, { likes: trail.likes + 1 })
+  debugger
   return dispatch => {
     return fetch(`${API_URL}/trails/${trail.id}`, {
       method: "PUT",

@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { Carousel } from 'react-bootstrap';
 
 const TrailsList = ({ trails }) => {
-  const orderTrails = trails.sort(function(a, b) {
+  const orderTrails = trails.trails.sort(function(a, b) {
           return b.likes - a.likes;
         })
   const renderTrails = orderTrails.map(trail =>
@@ -13,9 +13,9 @@ const TrailsList = ({ trails }) => {
 
   );
 
-  let randomTrail = trails[Math.floor(Math.random() * trails.length)];
+  let randomTrail = trails.trails[Math.floor(Math.random() * trails.trails.length)];
   let id = randomTrail? randomTrail.id : 1
-
+debugger
   return (
     <div>
       <div className="container-fluid text-center">
