@@ -16,6 +16,7 @@ export const setTrail = trail => {
 }
 
 export const addTrail = trail => {
+  debugger
   return {
     type:'ADD_TRAIL',
     trail
@@ -126,14 +127,14 @@ export const deleteTrail = (trailId, routerHistory) => {
 }
 
 export const likeTrail = (trail) => {
-  const updatedTrail = Object.assign(...trail, { likes: trail.likes + 1 })
+  // const updatedTrail = Object.assign(...trail, { likes: trail.likes + 1 })
   return dispatch => {
     return fetch(`${API_URL}/trails/${trail.id}`, {
       method: "PUT",
       headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({trail: updatedTrail})
+        body: JSON.stringify({trail: Object.assign(...trail, { likes: trail.likes + 1 })})
       })
       .then(response => response.json())
       .then(trail => {

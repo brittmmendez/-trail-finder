@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';                                          //connects component to redux store provided by provider component 
+import { connect } from 'react-redux';                                          //connects component to redux store provided by provider component
 import { Link } from 'react-router-dom';
 
 import LikeButton from '../components/LikeButton';

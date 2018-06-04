@@ -23,6 +23,7 @@ class TrailsNew extends Component {
     }
 
   handleOnSubmit = event => {
+    // console.log(this.props.something);
     event.preventDefault();
     // Destructure addTrail and history from the components props
     const { createTrail, history } = this.props;
@@ -69,5 +70,6 @@ class TrailsNew extends Component {
     );
   }
 }
+
 
 export default connect(null, { createTrail })(TrailsNew)

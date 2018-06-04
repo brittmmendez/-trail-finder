@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';                                          //connects component to redux store provided by provider component 
+import { connect } from 'react-redux';                                          //connects component to redux store provided by provider component
 import { editTrail } from '../actions';
 import { Button } from 'react-bootstrap';
 
@@ -16,7 +16,6 @@ class TrailsEdit extends Component {
   }
 
   handleOnChange = event => {
-      // Handle Updating Component State
       this.setState({
         [event.target.name]: event.target.value
       });
@@ -67,10 +66,10 @@ class TrailsEdit extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    trail: state.trails.trail
-  })
+const mapStateToProps = (state, ownProps) => {
+  let id = ownProps.match.params.trailId
+  let trail = state.trails.trails.find(trail => trail.id === +ownProps.match.params.trailId)
+  return {trail}
 }
 
-export default connect(mapStateToProps, {editTrail})(TrailsEdit);
+export default connect(mapStateToProps, {editTrail})(TrailsEdit);               //in order to actually connect to store we do this
