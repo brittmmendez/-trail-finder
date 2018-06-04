@@ -25,7 +25,6 @@ class TrailsListItem extends Component {
    }
 
   render() {
-    debugger;
     return(
       <div className="col-sm-6">
         <div className="container-fluid text-center">
@@ -42,7 +41,6 @@ class TrailsListItem extends Component {
 }
 
 const mapStateToProps = (state) => {
-  debugger
   return {
    trails: state.trails
  }

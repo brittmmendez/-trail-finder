@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import TrailsListItem from './TrailsListItem'
 import { Button } from 'react-bootstrap';
 import { Carousel } from 'react-bootstrap';
+import { getComments } from '../actions';
 
 const TrailsList = ({ trails }) => {
   const orderTrails = trails.trails.sort(function(a, b) {
@@ -15,7 +16,7 @@ const TrailsList = ({ trails }) => {
 
   let randomTrail = trails.trails[Math.floor(Math.random() * trails.trails.length)];
   let id = randomTrail? randomTrail.id : 1
-debugger
+
   return (
     <div>
       <div className="container-fluid text-center">

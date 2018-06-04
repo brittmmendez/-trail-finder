@@ -12,16 +12,19 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    if @comment
-      redirect_to :show
+    @comment = Comment.new
+    @comment.comment = params[:comment]
+    @comment.trail_id = params[:trail_id]
+
+    if @comment.save
+      render json: @comment
     else
       render :new
     end
   end
 
   def show
-    render json: @trail
+    render json: @comment
   end
 
   private

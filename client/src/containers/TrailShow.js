@@ -3,11 +3,14 @@ import { connect } from 'react-redux';                                          
 import { Link } from 'react-router-dom';
 
 import LikeButton from '../components/LikeButton';
+import CommentsList from '../components/CommentsList';
+import CommentsNew from './CommentsNew';
 
 import { fetchTrail } from '../actions';
 import { deleteTrail } from '../actions';
 import { likeTrail } from '../actions';
 import { editTrail } from '../actions';
+import { getComments } from '../actions';
 
 import { Button } from 'react-bootstrap';
 import { ButtonGroup } from 'react-bootstrap';
@@ -15,8 +18,10 @@ import { Image } from 'react-bootstrap';
 
 
   class TrailShow extends Component {
+
     componentDidMount() {
       this.props.fetchTrail(this.props.match.params.trailId);
+      this.props.getComments(this.props.match.params.trailId);
     }
 
     handleOnClick = () => {
@@ -24,15 +29,18 @@ import { Image } from 'react-bootstrap';
     }
 
     render() {
-      let trail = this.props.trail;
-      const {deleteTrail, match, history} = this.props;
+      const { trail, deleteTrail, match, history } = this.props;
 
       return (
       <div className="container-fluid text-center">
           <h1>{trail.name}</h1>
+
           <h4>Distance:  {trail.distance} miles</h4>
+
           <Image src={trail.image} width="30%" height="50%" alt="logo" rounded/> <br></br>
+
           <h4>Description: {trail.description}</h4>
+
           <ButtonGroup>
             <Button
               bsStyle="danger"
@@ -48,6 +56,12 @@ import { Image } from 'react-bootstrap';
 
             <LikeButton trail={trail} likeTrail={this.handleOnClick}/>
           </ButtonGroup>
+
+          <br></br>
+          <br></br>
+          <CommentsNew trailId={this.props.match.params.trailId}/>
+
+          <CommentsList comments={this.props.comments} />
         </div>
       )
     }
@@ -55,8 +69,9 @@ import { Image } from 'react-bootstrap';
 
   const mapStateToProps = (state) => {
     return ({
-      trail: state.trails.trail
+      trail: state.trails.trail,
+      comments: state.comments.comments
     })
   }
 
-  export default connect(mapStateToProps, {fetchTrail, deleteTrail, likeTrail})(TrailShow);
+  export default connect(mapStateToProps, {getComments, fetchTrail, deleteTrail, likeTrail})(TrailShow);

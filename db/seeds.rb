@@ -1,44 +1,44 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
+# #USERS
+# User.create(
+#   first_name: "Britt",
+#   last_name: "Morris",
+#   email: "brittmme@gmail.com",
+#   password: "hello123",
+#   password_confirmation:"hello123"
+# )
 #
-# Examples:
+# User.create(
+#   first_name: "Ryan",
+#   last_name: "Morris",
+#   email: "Ryanmme@gmail.com",
+#   password: "hello123",
+#   password_confirmation:"hello123"
+# )
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-#USERS
-User.create(
-  first_name: "Britt",
-  last_name: "Morris",
-  email: "brittmme@gmail.com",
-  password: "hello123",
-  password_confirmation:"hello123"
-)
-
-User.create(
-  first_name: "Ryan",
-  last_name: "Morris",
-  email: "Ryanmme@gmail.com",
-  password: "hello123",
-  password_confirmation:"hello123"
-)
-
-User.create(
-  first_name: "Marco",
-  last_name: "Morris",
-  email: "Marco@gmail.com",
-  password: "hello123",
-  password_confirmation:"hello123"
-)
-
-User.create(
-  first_name: "Britt",
-  last_name: "Morris",
-  email: "brittmme@gmail.com",
-  password: "hello123",
-  password_confirmation:"hello123"
-)
-
-
+# User.create(
+#   first_name: "Marco",
+#   last_name: "Morris",
+#   email: "Marco@gmail.com",
+#   password: "hello123",
+#   password_confirmation:"hello123"
+# )
+#
+# User.create(
+#   first_name: "Britt",
+#   last_name: "Morris",
+#   email: "brittmme@gmail.com",
+#   password: "hello123",
+#   password_confirmation:"hello123"
+# )
+#
+#
 
 #TRAILS
 Trail.create(
@@ -72,46 +72,47 @@ Trail.create(
 
 
 #COMMENTS
-Comment.create(
-  comment: "Such a beautiful bike trail! Would love to go back",
-  trail_id: 1
-)
-
-Comment.create(
-  comment: "Tubing in the little Miami River is fun too!",
-  trail_id: 1
-)
-Comment.create(
-  comment: "Great Picnic Areas",
-  trail_id: 1
-)
-
-Comment.create(
-  comment: "Such a beautiful bike trail! Would love to go back",
-  trail_id: 2
-)
-
-Comment.create(
-  comment: "Tubing in the little Miami River is fun too!",
-  trail_id: 2
-)
-Comment.create(
-  comment: "Great Picnic Areas",
-  trail_id: 2
-)
-
-
-Comment.create(
-  comment: "Such a beautiful bike trail! Would love to go back",
-  trail_id: 3
-)
-
-Comment.create(
-  comment: "Tubing in the little Miami River is fun too!",
-  trail_id: 3
-)
-
-Comment.create(
-  comment: "Great Picnic Areas",
-  trail_id: 3
-)
+# Comment.create(
+#   comment: "Tubing in the little Miami River is fun too!",
+#   trail_id: 95
+# )
+#
+#
+# Comment.create(
+#   comment: "Tubing in the little Miami River is fun too!",
+#   trail_id: 95
+# )
+#
+# Comment.create(
+#   comment: "Tubing in the little Miami River is fun too!",
+#   trail_id: 95
+# )
+#
+# Comment.create(
+#   comment: "Tubing in the little Miami River is fun too!",
+#   trail_id: 95
+# )
+#
+# Comment.create(
+# comment: "Tubing in the little Miami River is fun too!",
+#   trail_id: 95
+# )
+#
+# Comment.create(
+#   comment: "Tubing in the little Miami River is fun too!",
+#   trail_id: 95
+# )
+# Comment.create(
+#   comment: "Tubing in the little Miami River is fun too!",
+#   trail_id: 95
+# )
+#
+# Comment.create(
+#   comment: "Tubing in the little Miami River is fun too!",
+#   trail_id: 95
+# )
+#
+# Comment.create(
+#   comment: "Tubing in the little Miami River is fun too!",
+#   trail_id: 95
+# )

@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:3001/api'
 
-// Action Creators
+// Trail Action Creators
 export const setTrails = trails => {
   return {
     type: 'GET_TRAILS',
@@ -16,7 +16,6 @@ export const setTrail = trail => {
 }
 
 export const addTrail = trail => {
-  debugger
   return {
     type:'ADD_TRAIL',
     trail
@@ -44,7 +43,57 @@ export const updateTrail = trail => {
   }
 }
 
-// Async actions
+// Comment Action Creators
+export const setComments = comments => {
+  return {
+    type: 'GET_COMMENTS',
+    comments
+  }
+}
+
+export const addComment = comment => {
+  return {
+    type:'ADD_COMMENT',
+    comment
+  }
+}
+
+// Comments Async actions
+export const getComments = (trailId) => {
+  return dispatch => {
+    return fetch(`${API_URL}/trails/${trailId}/comments`, {
+      method: "GET",
+    })
+    .then(res => res.json())
+    .then(comments => {
+      dispatch(setComments(comments))
+    })
+    .catch(error => console.log(error));
+  }
+}
+
+export const createComment = (comment) => {
+  return dispatch => {
+    return fetch(`${API_URL}/trails/${comment.trail_id}/comments`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({comment: comment.comment})
+    })
+    .then(handleErrors)
+    .then(response => response.json())
+    .then(comment => {
+      dispatch(addComment(comment))
+    })
+    .catch(error => {
+      dispatch({type: 'error'})
+     })
+  }
+}
+
+
+// Trails Async actions
 export const getTrails= () => {
   return dispatch => {
     return fetch(`${API_URL}/trails`, {
