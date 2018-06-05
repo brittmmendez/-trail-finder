@@ -23,9 +23,7 @@ class TrailsEdit extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    // Destructure addTrail and history from the components props
     const { editTrail, history } = this.props;
-    // Create the trail with the Redux action
     editTrail(this.state, history);
   }
 
@@ -36,6 +34,7 @@ class TrailsEdit extends Component {
           <label>
             Name: <br></br>
               <input
+                className="form-control"
                 type="text"
                 name="name"
                 value={this.state.name}
@@ -45,6 +44,7 @@ class TrailsEdit extends Component {
           <label>
             Distance: <br></br>
               <input
+                className="form-control"
                 type="text"
                 name="distance"
                 value={this.state.distance}
@@ -54,12 +54,14 @@ class TrailsEdit extends Component {
           <label>
             Description: <br></br>
               <textarea
+                className="form-control"
+                style={{width: 148, height: 90}}
                 name="description"
                 value={this.state.description}
                 onChange={this.handleOnChange}
                 />
           </label><br></br>
-          <Button bsStyle='primary' type="submit"> <span class="glyphicon glyphicon-ok"></span> Update Trail </Button>
+          <Button className="btn btn-outline-primary" type="submit"> <span className="glyphicon glyphicon-ok"></span> Update Trail </Button>
         </form>
       </div>
     );

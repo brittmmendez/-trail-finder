@@ -5,8 +5,6 @@ import { ListGroup } from 'react-bootstrap';
 const CommentsList = ({ comments }) => {
 
 let order = comments.sort(function(a,b){
-  // Turn your strings into dates, and then subtract them
-  // to get a value that is either negative, positive, or zero.
   return new Date(b.created_at) - new Date(a.created_at);
 });
 
@@ -15,10 +13,8 @@ let order = comments.sort(function(a,b){
   );
 
   return (
-    <div className="container-fluid text-left">
-      <ListGroup>
-        {renderComments}
-      </ListGroup>
+    <div className="container-fluid text-center" style={{width: 600}}>
+      {renderComments}
     </div>
   );
 };

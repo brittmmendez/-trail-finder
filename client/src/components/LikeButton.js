@@ -8,9 +8,10 @@ class LikeButton extends Component {
     return(
       <div>
         <Button
-          bsStyle="success"
+          className="btn btn-outline-success"
           onClick={this.props.likeTrail}>
-          <span className="glyphicon glyphicon-plus"></span> Add Run
+          <span className="glyphicon glyphicon-plus"></span>
+          <span> Add Run </span>
           <Badge> {this.props.trail.likes} </Badge>
           </Button>
       </div>

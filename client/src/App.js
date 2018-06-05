@@ -5,9 +5,14 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import TrailsPage from './containers/TrailsPage';
-
+import { getTrails } from './actions';
+import { connect } from 'react-redux';
 
 class App extends Component {
+    componentDidMount() {
+      this.props.getTrails()
+    }
+
   render() {
     return (
       <Router>
@@ -24,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, {getTrails})(App);

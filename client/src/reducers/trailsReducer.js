@@ -1,17 +1,14 @@
-export default (state={trails:[], trail: "" }, action) => {
+export default (state={trails:[]}, action) => {
 
   switch (action.type) {
     case 'GET_TRAILS':
       return {...state, trails: action.trails}
 
-    case 'GET_TRAIL':
-      return {...state, trail: action.trail}
-
     case 'ADD_TRAIL':
-      return {trails: [...state.trails, action.trail], trail: action.trail};
+      return {trails: [...state.trails, action.trail]};
 
     case 'REMOVE_TRAIL':
-      return {trails: state.trails.filter(trail => trail.id !== action.trail), trail:""};
+      return {trails: state.trails.filter(trail => trail.id !== action.trail)};
 
     case 'EDIT_TRAIL':
       state.trails.map((trail) => {
@@ -24,12 +21,14 @@ export default (state={trails:[], trail: "" }, action) => {
       return {...state, trail: action.trail};
 
     case 'LIKE_TRAIL':
-      state.trails.map((trail) => {
+      const updatedTrails = state.trails.map((trail) => {
         if (trail.id === action.trail.id) {
-          trail.likes= action.trail.likes
+          return action.trail
+        } else {
+          return trail
         }
       });
-      return {...state, trail: action.trail};
+      return {...state, trails: updatedTrails, };
 
     default:
       return state;

@@ -15,16 +15,13 @@ class CommentsNew extends Component {
   }
 
   handleOnChange = event => {
-      // Handle Updating Component State
       this.setState({
         [event.target.name]: event.target.value
       });
     }
 
   handleOnSubmit = event => {
-    // console.log(this.props.something);
     event.preventDefault();
-    // Create the trail with the Redux action
     this.props.createComment(this.state);
     this.setState({
       comment: ''
@@ -33,7 +30,7 @@ class CommentsNew extends Component {
 
   render(){
     return (
-      <div className="container-fluid text-center">
+      <div className="container-fluid text-center" style={{width: 600}}>
       <ListGroupItem >
         <h1> Run Log </h1>
         <form onSubmit={this.handleOnSubmit} >
@@ -47,7 +44,7 @@ class CommentsNew extends Component {
             onChange={this.handleOnChange}
           />
 
-          <Button bsStyle='primary' type="submit"> <span className="glyphicon glyphicon-ok"></span> Add Comment </Button>
+          <Button className="btn btn-outline-primary" type="submit"> <span className="glyphicon glyphicon-ok"></span> Add Comment </Button>
         </form>
         </ListGroupItem>
         </div>

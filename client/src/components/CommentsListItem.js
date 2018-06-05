@@ -8,7 +8,7 @@ class CommentsListItem extends Component {
       let ts= new Date(created_at);
       let date = ts.toLocaleString()
     return(
-        <ListGroupItem header={date}> {comment}</ListGroupItem>
+        <ListGroupItem className="container-fluid text-left" header={date}> {comment}</ListGroupItem>
     )
   }
 }

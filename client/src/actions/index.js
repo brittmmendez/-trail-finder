@@ -8,13 +8,6 @@ export const setTrails = trails => {
   }
 }
 
-export const setTrail = trail => {
-  return {
-    type: 'GET_TRAIL',
-    trail
-  }
-}
-
 export const addTrail = trail => {
   return {
     type:'ADD_TRAIL',
@@ -105,17 +98,6 @@ export const getTrails= () => {
     })
     .catch(error => console.log(error));
   }
-}
-
-export const fetchTrail = (trailId) => {
-	return dispatch => {
-		return fetch(`${API_URL}/trails/${trailId}`)
-			.then(response => response.json())
-			.then(trail => {
-				dispatch(setTrail(trail));
-			})
-			.catch(error => console.log(error));
-	}
 }
 
 export const createTrail = (trail, routerHistory) => {

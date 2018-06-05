@@ -5,18 +5,12 @@ import { connect } from 'react-redux';                                          
 import TrailsList from '../components/TrailsList';
 import TrailShow from './TrailShow';
 import TrailsNew from './TrailsNew';
-import { getTrails } from '../actions';
 import { likeTrail } from '../actions';
 import { deleteTrail } from '../actions';
 import TrailsEdit from './TrailsEdit';
 import { Link } from 'react-router-dom';
 
 class TrailsPage extends Component {
-
-  componentDidMount() {
-    this.props.getTrails()
-  }
-
 
   render() {
     const { trails, match } = this.props;
@@ -42,4 +36,4 @@ const mapStateToProps = (state) => {
   });
 }
 
-export default connect(mapStateToProps, {getTrails, likeTrail})(TrailsPage);
+export default connect(mapStateToProps, {likeTrail})(TrailsPage);

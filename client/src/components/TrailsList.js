@@ -20,13 +20,11 @@ const TrailsList = ({ trails }) => {
   return (
     <div>
       <div className="container-fluid text-center">
-        <Button bsSize="large">
-          <Link
-            style={{ marginRight: '12px' }}
-            to={`/trails/${id}`}>
+        <Link to={`/trails/${id}`}>
+          <Button bsSize="large" className="btn btn-info">
             CLICK ME<br></br> For A Random Trail!
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </div>
 
       <div className="container">
